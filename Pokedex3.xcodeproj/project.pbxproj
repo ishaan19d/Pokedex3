@@ -57,9 +57,9 @@
 			children = (
 				4C85B2412C204AC900173650 /* Pokedex3App.swift */,
 				4C85B2432C204AC900173650 /* ContentView.swift */,
-				4C85B2452C204ACC00173650 /* Assets.xcassets */,
 				4C85B24A2C204ACC00173650 /* Persistence.swift */,
 				4C85B24C2C204ACC00173650 /* Pokedex3.xcdatamodeld */,
+				4C85B2452C204ACC00173650 /* Assets.xcassets */,
 				4C85B2472C204ACC00173650 /* Preview Content */,
 			);
 			path = Pokedex3;
