@@ -13,6 +13,7 @@
 		4C85B2492C204ACC00173650 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C85B2482C204ACC00173650 /* Preview Assets.xcassets */; };
 		4C85B24B2C204ACC00173650 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C85B24A2C204ACC00173650 /* Persistence.swift */; };
 		4C85B24E2C204ACC00173650 /* Pokedex3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C85B24C2C204ACC00173650 /* Pokedex3.xcdatamodeld */; };
+		4C9DB6AD2C206FA200012E86 /* TempPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9DB6AC2C206FA200012E86 /* TempPokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		4C85B2482C204ACC00173650 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C85B24A2C204ACC00173650 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4C85B24D2C204ACC00173650 /* Pokedex3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokedex3.xcdatamodel; sourceTree = "<group>"; };
+		4C9DB6AC2C206FA200012E86 /* TempPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				4C85B2412C204AC900173650 /* Pokedex3App.swift */,
 				4C85B2432C204AC900173650 /* ContentView.swift */,
+				4C9DB6AC2C206FA200012E86 /* TempPokemon.swift */,
 				4C85B24A2C204ACC00173650 /* Persistence.swift */,
 				4C85B24C2C204ACC00173650 /* Pokedex3.xcdatamodeld */,
 				4C85B2452C204ACC00173650 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			files = (
 				4C85B24E2C204ACC00173650 /* Pokedex3.xcdatamodeld in Sources */,
 				4C85B24B2C204ACC00173650 /* Persistence.swift in Sources */,
+				4C9DB6AD2C206FA200012E86 /* TempPokemon.swift in Sources */,
 				4C85B2442C204AC900173650 /* ContentView.swift in Sources */,
 				4C85B2422C204AC900173650 /* Pokedex3App.swift in Sources */,
 			);
