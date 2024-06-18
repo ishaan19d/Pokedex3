@@ -19,14 +19,8 @@ struct ContentView: View {
         NavigationStack {
             List(pokedex) { pokemon in
                 NavigationLink{
-                    AsyncImage(url: pokemon.sprite) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: 100,height: 100)
+                    PokemonDetail()
+                        .environmentObject(pokemon)
                 } label : {
                     AsyncImage(url: pokemon.sprite) { image in
                         image
