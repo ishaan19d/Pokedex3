@@ -13,34 +13,41 @@ struct ContentView: View {
 
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Pokemon.id, ascending: true)],animation: .default)
     private var pokedex: FetchedResults<Pokemon>
+    
+    @StateObject private var pokemonVM = PokemonViewModel(controller: FetchController())
 
     var body: some View {
-    
-        NavigationStack {
-            List(pokedex) { pokemon in
-                NavigationLink{
-                    PokemonDetail()
-                        .environmentObject(pokemon)
-                } label : {
-                    AsyncImage(url: pokemon.sprite) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 175,height: 175)
-                    } placeholder: {
-                        ProgressView()
+        switch pokemonVM.status {
+        case .success:
+            NavigationStack {
+                List(pokedex) { pokemon in
+                    NavigationLink{
+                        PokemonDetail()
+                            .environmentObject(pokemon)
+                    } label : {
+                        AsyncImage(url: pokemon.sprite) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100,height: 100)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 100,height: 100)
+                        
+                        Text(pokemon.name!.capitalized)
                     }
-                    .frame(width: 100,height: 100)
-                    
-                    Text(pokemon.name!.capitalized)
+                }
+                .navigationTitle("Pokédex")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
+                    }
                 }
             }
-            .navigationTitle("Pokedex")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-            }
+            
+        default:
+            ProgressView()
         }
     }
 }

@@ -18,6 +18,9 @@ struct PokemonDetail: View {
                     .resizable()
                     .scaledToFit()
                     .shadow(color: .black, radius: 6)
+                    .overlay {
+                        LinearGradient(stops: [Gradient.Stop(color: .black, location: 0),Gradient.Stop(color: .clear, location: 0.1),Gradient.Stop(color: .clear, location: 0.75),Gradient.Stop(color: .black, location: 1)], startPoint: .top, endPoint: .bottom)
+                    }
                 
                 AsyncImage(url: showShiny ? pokemon.shinySprite : pokemon.sprite) { image in
                     image
