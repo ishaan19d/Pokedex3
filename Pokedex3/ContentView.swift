@@ -17,7 +17,18 @@ struct ContentView: View {
     
     @State var filterByFavorites = false
     @StateObject private var pokemonVM = PokemonViewModel(controller: FetchController())
-
+    @State var searchText = ""
+    
+    private var filteredPokemon: [Pokemon] {
+        if searchText.isEmpty {
+            return filterByFavorites ? Array(favorites) : Array(pokedex)
+        } else {
+            return (filterByFavorites ? Array(favorites) : Array(pokedex)).filter { pokemon in
+                pokemon.name!.localizedStandardContains(searchText)
+            }
+        }
+    }
+    
     var body: some View {
         switch pokemonVM.status {
         case .notStarted:
@@ -35,7 +46,7 @@ struct ContentView: View {
             
         case .success:
             NavigationStack {
-                List(filterByFavorites ? favorites : pokedex ) { pokemon in
+                List(filteredPokemon) { pokemon in
                     NavigationLink{
                         PokemonDetail()
                             .environmentObject(pokemon)
@@ -73,6 +84,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .searchable(text: $searchText, prompt: "Find your pokemon")
+            .autocorrectionDisabled()
+            .animation(.default, value: filteredPokemon)
+            
         case .failed(let error):
             Text(error.localizedDescription)
                 .font(.subheadline)
@@ -84,6 +99,7 @@ struct ContentView: View {
         }
     }
 }
+
 
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
